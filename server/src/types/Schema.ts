@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 export interface UserDocument extends mongoose.Document {
+    _id: mongoose.Types.ObjectId;
     email : string;
     password : string;
     comparePassword : (password : string)=> Promise<boolean>

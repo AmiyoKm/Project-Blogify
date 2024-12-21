@@ -4,27 +4,27 @@ import { SignOptions, VerifyOptions } from "jsonwebtoken"
 import jwt from "jsonwebtoken"
 import { JWT_REFRESH_SECRET, JWT_SECRET } from "../constants/env"
 import { SessionDocument, UserDocument } from "../types/Schema"
-export type RefreshToken ={
-    sessionId : SessionDocument["_id"]
-}
+export type RefreshToken = {
+    sessionId: SessionDocument["_id"];
+};
 
-export type AccessToken ={
-    userId :  UserDocument["_id"]
-    sessionId :  SessionDocument["_id"]
-}
+export type AccessToken = {
+    userId: UserDocument["_id"];
+    sessionId: SessionDocument["_id"];
+};
 
 type SignOptionsAndSecret = SignOptions & {
-    secret : string
-}
+    secret: string;
+};
 
-const defaults : SignOptions ={
-    audience : ["user"],
-}
+const defaults: SignOptions = {
+    audience: ["user"],
+};
 
-const accessTokenSignOptions : SignOptionsAndSecret ={
-    expiresIn : "15m",
-    secret : JWT_SECRET,
-}
+const accessTokenSignOptions: SignOptionsAndSecret = {
+    expiresIn: "15m",
+    secret: JWT_SECRET,
+};
 
 export const refreshTokenSignOptions : SignOptionsAndSecret ={
     expiresIn : "30d",

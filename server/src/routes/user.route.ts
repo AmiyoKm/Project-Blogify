@@ -1,9 +1,9 @@
-import express from 'express'
-import { loginHandler, logoutHandler, registerHandler } from '../controller/auth.controller'
-const authRouter = express.Router()
+import { Router } from "express";
+import { getUserHandler } from "../controller/user.controller";
 
-authRouter.route('/login').post(loginHandler)
-authRouter.route('/register').post(registerHandler)
-authRouter.route('/logout').get(logoutHandler)
+const userRouter = Router();
 
-export default authRouter
+userRouter.route("/").get(getUserHandler);
+
+
+export default userRouter
