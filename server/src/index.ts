@@ -1,8 +1,9 @@
 import express from 'express'
 import dotenv from 'dotenv'
 dotenv.config()
+import cors from 'cors'
 import authRouter from './routes/auth.route'
-import { PORT } from './constants/env';
+import { APP_ORIGIN, PORT } from './constants/env';
 import connectDB from './config/db';
 import errorHandler from './middleware/errorHandler';
 import cookieParser from 'cookie-parser';
@@ -12,6 +13,7 @@ import sessionRouter from './routes/session.route';
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({ origin: APP_ORIGIN, credentials: true }));
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });

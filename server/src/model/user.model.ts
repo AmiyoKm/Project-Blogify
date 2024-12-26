@@ -21,7 +21,8 @@ const userSchema = new mongoose.Schema<UserDocument>({
         default : "user"
     },
     avatar : {
-        type : String
+        type : String,
+        required : false
     }
 }, {timestamps : true}
 );

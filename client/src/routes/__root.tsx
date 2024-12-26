@@ -5,7 +5,7 @@ import '@/index.css'
 export const Route = createRootRoute({
   component: () => (
     <>
-      <div className="p-2 flex gap-2">
+      {/* <div className="p-2 flex gap-2">
         <Link to="/" className="[&.active]:font-bold">
           Home
         </Link>{' '}
@@ -18,10 +18,13 @@ export const Route = createRootRoute({
         }} className="[&.active]:font-bold">
           Posts
         </Link>
-      </div>
+      </div> */}
       <hr />
+      <div className='w-full h-full'>
       <Outlet />
-      <TanStackRouterDevtools />
+
+      </div>
+       <TanStackRouterDevtools />
       <ReactQueryDevtools buttonPosition='bottom-right' />
     </>
   ),
